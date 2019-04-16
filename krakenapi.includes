@@ -1,0 +1,5 @@
+libjson
+libjson/_internal/Dependencies/libbase64++
+libjson/_internal/Dependencies/mempool++
+libjson/_internal/Source
+libjson/_internal/Source/JSONDefs

@@ -46,11 +46,9 @@ public:
    std::string trades(const std::string& pair, const std::string& since,
 		      std::vector<KTrade>& output);
 
-   // TODO: public market data
-   // void time();
-   // void assets();
-   // ...
-
+   // returns recent Kraken OHLC data
+   std::string ohlc(const std::string& pair, const std::string& interval,
+              std::vector<KOHLC>& output);
 
 private:
    // init CURL and other stuffs

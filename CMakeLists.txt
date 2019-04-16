@@ -71,19 +71,3 @@ set_target_properties (libjson PROPERTIES
 
 list (APPEND LIBS libjson)
 
-#-------------------------------------------------------------------------------
-# Add the executable 'kph'
-#-------------------------------------------------------------------------------
-add_executable (kph kph.cpp)
-set_target_properties (kph PROPERTIES 
-		      COMPILE_DEFINITIONS_DEBUG "JSON_DEBUG;JSON_SAFE;JSON_ISO_STRICT")
-target_link_libraries (kph ${LIBS})
-
-#-------------------------------------------------------------------------------
-# Add the executable 'krt'
-#-------------------------------------------------------------------------------
-add_executable (krt krt.cpp)
-set_target_properties (krt PROPERTIES 
-		      COMPILE_DEFINITIONS_DEBUG "JSON_DEBUG;JSON_SAFE;JSON_ISO_STRICT")
-target_link_libraries (krt ${LIBS})
-

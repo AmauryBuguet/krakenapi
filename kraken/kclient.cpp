@@ -349,6 +349,49 @@ std::string KClient::trades(const std::string& pair,
    output.swap(buf);
    return last;
 }
+// returns recent Kraken OHLC data
+std::string ohlc(const std::string& pair, const std::string& interval,
+           std::vector<KOHLC>& output);
+//------------------------------------------------------------------------------
+// downloads recent trade data:
+std::string KClient::ohlc(const std::string &pair, const std::string &interval, std::vector<KOHLC> &output)
+{
+   KInput ki;
+   ki["pair"] = pair;
+   ki["interval"] = interval;
+
+   // download and parse data
+   json_string data = libjson::to_json_string( public_method("OHLC", ki) );
+   JSONNode root = libjson::parse(data);
+
+   // error gestion
+   if (!root.at("error").empty()) {
+      std::ostringstream oss;
+      oss << "Kraken response contains errors: ";
+
+      // append errors to output string stream
+      for (JSONNode::const_iterator
+          it = root["error"].begin(); it != root["error"].end(); ++it)
+     oss << std::endl << " * " << libjson::to_std_string(it->as_string());
+
+      throw std::runtime_error(oss.str());
+   }
+   if (root.at("result").empty()) {
+      throw std::runtime_error("Kraken response doesn't contain result data");
+   }
+
+   JSONNode &result = root["result"];
+   JSONNode &result_pair = result[0];
+   std::string last = libjson::to_std_string( result.at("last").as_string() );
+
+   std::vector<KOHLC> buf;
+   for (JSONNode::const_iterator
+       it = result_pair.begin(); it != result_pair.end(); ++it)
+      buf.push_back(KOHLC(*it));
+
+   output.swap(buf);
+   return last;
+}
 
 //------------------------------------------------------------------------------
 // helper function to initialize Kraken API library's resources:

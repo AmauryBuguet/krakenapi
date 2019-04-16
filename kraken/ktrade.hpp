@@ -31,6 +31,21 @@ struct KTrade {
    KTrade(JSONNode node);
 };
 
+// deals with recent trade data:
+struct KOHLC {
+
+   time_t time;
+   double openprice, highprice, lowprice, closeprice, vwap, volume, count;
+
+   // default ctor
+   KOHLC() :time(0), openprice(0), highprice(0), 
+        lowprice(0), vwap(0), volume(0), count(0) { }
+
+   // construct from a JSONNode 
+   KOHLC(JSONNode node);
+};
+//<time>, <open>, <high>, <low>, <close>, <vwap>, <volume>, <count>
+
 //------------------------------------------------------------------------------
 // helper function to print a KTrade
 std::ostream& operator<<(std::ostream& os, const KTrade& kt);
