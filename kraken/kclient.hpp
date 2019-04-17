@@ -47,7 +47,7 @@ public:
 		      std::vector<KTrade>& output);
 
    // returns recent Kraken OHLC data
-   std::string ohlc(const std::string& pair, const std::string& interval,
+   std::string getOHLC(const std::string& pair, const std::string& interval,
               std::vector<KOHLC>& output);
 
 private:

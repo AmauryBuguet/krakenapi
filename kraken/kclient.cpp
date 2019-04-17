@@ -354,7 +354,7 @@ std::string ohlc(const std::string& pair, const std::string& interval,
            std::vector<KOHLC>& output);
 //------------------------------------------------------------------------------
 // downloads recent trade data:
-std::string KClient::ohlc(const std::string &pair, const std::string &interval, std::vector<KOHLC> &output)
+std::string KClient::getOHLC(const std::string &pair, const std::string &interval, std::vector<KOHLC> &output)
 {
    KInput ki;
    ki["pair"] = pair;

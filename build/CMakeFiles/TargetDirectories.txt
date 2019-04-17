@@ -1,0 +1,4 @@
+/home/amo/Documents/GitHub/perso/krakenapi/build/CMakeFiles/rebuild_cache.dir
+/home/amo/Documents/GitHub/perso/krakenapi/build/CMakeFiles/edit_cache.dir
+/home/amo/Documents/GitHub/perso/krakenapi/build/CMakeFiles/libjson.dir
+/home/amo/Documents/GitHub/perso/krakenapi/build/CMakeFiles/kapi.dir
