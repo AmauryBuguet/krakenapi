@@ -1,2 +1,0 @@
-/usr/bin/ar qc libkapid.a  CMakeFiles/kapi.dir/kraken/kclient.cpp.o CMakeFiles/kapi.dir/kraken/ktrade.cpp.o
-/usr/bin/ranlib libkapid.a
